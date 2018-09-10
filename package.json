@@ -8,7 +8,9 @@
     "css-loader": "^1.0.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4",
+    "rails-ujs": "^5.2.1",
     "stimulus": "^1.1.0",
+    "turbolinks": "^5.2.0",
     "vue": "^2.5.17",
     "vue-loader": "14.2.2",
     "vue-template-compiler": "^2.5.17"

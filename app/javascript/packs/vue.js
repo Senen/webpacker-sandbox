@@ -1,4 +1,17 @@
 import 'bootstrap/dist/js/bootstrap';
+
+console.log('Hello from Webpacker running Stimulus');
+
+import 'bootstrap/dist/js/bootstrap';
+
+// run rails ujs
+const Rails = require('rails-ujs');
+Rails.start();
+
+// run turbolinks
+const Turbolinks = require('turbolinks');
+Turbolinks.start();
+
 import Vue from 'vue/dist/vue.esm'
 
 console.log('Hello World from Webpacker Running Vue')

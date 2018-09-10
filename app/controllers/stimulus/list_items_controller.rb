@@ -1,5 +1,6 @@
 module Stimulus
   class ListItemsController < ApplicationController
+    layout 'stimulus'
     before_action :set_list_item, only: [:show, :edit, :update, :destroy]
 
     # GET /list_items

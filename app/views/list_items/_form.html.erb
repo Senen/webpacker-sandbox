@@ -13,25 +13,25 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :done_at %>
-    <%= form.datetime_select :done_at %>
+    <%= form.datetime_select :done_at, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :position %>
-    <%= form.number_field :position %>
+    <%= form.number_field :position, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
