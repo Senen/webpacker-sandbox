@@ -2,12 +2,14 @@
 
 <!--HTML from anywhere-->
 <div data-controller="hello">
-  <input data-target="hello.name" type="text">
+  <input class="form-control" data-target="hello.name" type="text">
 
-  <button data-action="click->hello#greet">
+  <button class="btn" data-action="click->hello#greet">
     Greet
   </button>
 
+  <br><br>
+  
   <span data-target="hello.output">
   </span>
 </div>

@@ -5,11 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'vue', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'vue' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+    <main role="main" class="container">
+      <div id="content">
+        <%= yield %>
+      </div>
+    </main>
+  </body>
   </body>
 </html>
