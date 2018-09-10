@@ -1,0 +1,30 @@
+<h1>Vue samples page</h1>
+
+<h2>Hover title</h2>
+<div id="hover-title">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+
+<h2>Todo list</h2>
+<div id="todo-list">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+
+<h2>Reverse Message</h2>
+<div id="reverse-message">
+  <p>{{ user_message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<h2>User input</h2>
+<div id="user-input">
+  <p>{{ user_input_message }}</p>
+  <input v-model="user_input_message">
+</div>
