@@ -1,3 +1,4 @@
+import 'bootstrap/dist/js/bootstrap';
 import Vue from 'vue/dist/vue.esm'
 
 console.log('Hello World from Webpacker Running Vue')
