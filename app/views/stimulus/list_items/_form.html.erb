@@ -1,0 +1,37 @@
+<%= form_with(model: [:stimulus, list_item], local: true) do |form| %>
+  <% if list_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list_item.errors.count, "error") %> prohibited this list_item from being saved:</h2>
+
+      <ul>
+      <% list_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :done_at %>
+    <%= form.datetime_select :done_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
