@@ -6,7 +6,7 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-console.log('Hello from application default webpack');
+console.log('Hello from application coffee webpack');
 
 import 'bootstrap/dist/js/bootstrap';
 
