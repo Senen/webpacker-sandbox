@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Items</h1>
+
+<div class="icon-button text-right">
+  <%= link_to new_vue_list_item_path, class: "btn btn-outline-success" do %>
+    <vf-icon icon="plus" fixed></vf-icon>
+    New List Item
+  <% end %>
+</div>
+
+<br>
+
+<div id="list-items" api-url="<%= url_for(pagination_params.merge({ format: :json, search: params[:search] })) %>">
+
+  <div id="filters">
+    <b-form-input v-model="search"
+                  type="text"
+                  placeholder="Enter your search"
+                  @change="doSearch"></b-form-input>
+    <p>Value: {{ search }}</p>
+  </div>
+  <b-table striped responsive hover :items="items" :fields="fields">
+    <template slot="actions" scope="listItem">
+      <div class="table-actions">
+        <b-button size="sm" variant="outline-info" v-on:click="showListItem(listItem)">
+          Show
+        </b-button>
+        <b-button size="sm" variant="info" @click="editListItem(listItem)">
+          Edit
+        </b-button>
+        <a :href="listItem.item.url"
+           data-confirm="Are you sure?"
+           class="btn btn-outline-danger btn-sm"
+           rel="nofollow"
+           data-method="delete">Destroy</a>
+      </div>
+    </template>
+  </b-table>
+
+  <!-- <b-pagination-nav align="center" v-model="currentPage"
+                    :link-gen="linkGenerator"
+                    :number-of-pages="pages">
+  </b-pagination-nav> -->
+
+  <b-pagination align="center" v-model="currentPage"
+                :per-page="perPage"
+                :total-rows="total"
+                @change="onPageChange">
+  </b-pagination>
+
+  <div>Showing page {{currentPage}} of {{total_pages}}. Records from {{from}} to {{to}}</div>
+
+  <br>
+
+  <div>currentPage: {{currentPage}}</div>
+  <div>pages: {{pages}}</div>
+  <div>perPage: {{perPage}}</div>
+  <div>total: {{total}}</div>
+  <div>searching fo : {{search}}</div>
+</div>
