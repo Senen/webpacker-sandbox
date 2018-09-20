@@ -21,12 +21,14 @@ $(document).on("turbolinks:load", function(){
         total: 0,
         from: 0,
         to: 0,
-        search: ""
+        search: "",
+        firstLoad: true
       }
     },
     mounted: function () {
       var element = $(this.$el);
 
+      this.firstLoad = true;
       this.fetch($(element).attr('api-url'));
     },
     methods: {
@@ -42,6 +44,12 @@ $(document).on("turbolinks:load", function(){
             this.total = response.data.total;
             this.from = response.data.from;
             this.to = response.data.to;
+            console.log(this.firstLoad);
+            if (this.firstLoad == false){
+              console.log('asdasdasd');
+              this.pushState();
+            }
+            this.firstLoad = false;
           });
       },
       showListItem(listItem) {
@@ -62,11 +70,16 @@ $(document).on("turbolinks:load", function(){
       //   }
       // },
       onPageChange(page){
-        this.fetch(`/vue/list_items.json?page=${page}&per_page=${this.perPage}&search=${this.search}`);
+        var json_url = `/vue/list_items.json?page=${page}&per_page=${this.perPage}&search=${this.search}`
+        this.fetch(json_url);
       },
       doSearch(){
         var url = `/vue/list_items.json?page=${this.currentPage}&per_page=${this.perPage}&search=${this.search}`
         this.fetch(url);
+      },
+      pushState(){
+        var html_url = `/vue/list_items?page=${this.currentPage}&per_page=${this.perPage}&search=${this.search}`
+        history.pushState({turbolinks: true, url: html_url}, `Page ${this.currentPage}`, html_url)
       }
     }
   });
