@@ -57,6 +57,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'capybara', '~> 3.7.1'
+  gem 'database_cleaner', '~> 1.7.0'
+  gem 'factory_bot_rails', '~> 4.8.2'
+  gem 'selenium-webdriver', '~> 3.14.0'
+  gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock', '~> 3.4.2'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
