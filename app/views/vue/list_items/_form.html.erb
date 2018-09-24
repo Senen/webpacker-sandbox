@@ -1,4 +1,4 @@
-<%= form_with(model: [:vue, list_item], local: true) do |form| %>
+<%= form_for([:vue, list_item], local: true) do |form| %>
   <% if list_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(list_item.errors.count, "error") %> prohibited this list_item from being saved:</h2>

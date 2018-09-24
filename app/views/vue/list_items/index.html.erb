@@ -14,7 +14,8 @@
 <div id="list-items" api-url="<%= url_for(pagination_params.merge({ format: :json, search: params[:search] })) %>">
 
   <div id="filters">
-    <b-form-input v-model="search"
+    <b-form-input id="searchField"
+                  v-model="search"
                   type="text"
                   placeholder="Enter your search"
                   @change="doSearch"></b-form-input>

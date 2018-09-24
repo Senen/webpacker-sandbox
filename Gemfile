@@ -64,11 +64,11 @@ end
 
 group :test do
   gem 'capybara', '~> 3.7.1'
+  gem 'chromedriver-helper', '~> 2.1.0'
   gem 'database_cleaner', '~> 1.7.0'
   gem 'factory_bot_rails', '~> 4.8.2'
   gem 'selenium-webdriver', '~> 3.14.0'
   gem 'simplecov', require: false
-  gem 'vcr'
   gem 'webmock', '~> 3.4.2'
 end
 
