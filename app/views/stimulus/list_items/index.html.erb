@@ -2,30 +2,22 @@
 
 <h1>List Items</h1>
 
-<table id="list-items-table" class="table table-responsive table-stripped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Done at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @list_items.each do |list_item| %>
-      <tr>
-        <td><%= list_item.title %></td>
-        <td><%= list_item.description %></td>
-        <td><%= list_item.done_at %></td>
-        <td><%= link_to 'Show', stimulus_list_item_path(list_item), class: "btn btn-outline-primary" %></td>
-        <td><%= link_to 'Edit', edit_stimulus_list_item_path(list_item), class: "btn btn-outline-secondary" %></td>
-        <td><%= link_to 'Destroy', stimulus_list_item_path(list_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="icon-button text-right">
+  <%= link_to new_stimulus_list_item_path, class: "btn btn-outline-success" do %>
+    <i class="fa fa-plus fa-fw"></i>
+    New List Item
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New List Item', new_stimulus_list_item_path, class: "btn btn-outline-success" %>
+<div data-controller="list-items"
+     data-list-items-url="<%= url_for(pagination_params.merge({ format: :js, search: params[:search] })) %>"
+     data-list-items-html-url="<%= url_for(pagination_params) %>">
+  <div id="filters">
+    <input id="searchField" type="text" placeholder="Enter your search" class="form-control"
+      data-action="change->list-items#change_search" data-target="list-items.query"/>
+    <p>Value: <span id="search-query" data-target="list-items.query"></span></p>
+  </div>
+  <div id="list-items-records" class="table-responsive"></div>
+</div>

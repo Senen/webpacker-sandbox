@@ -1,12 +1,20 @@
 module Stimulus
   class ListItemsController < ApplicationController
+    protect_from_forgery except: :index
     layout 'stimulus'
     before_action :set_list_item, only: [:show, :edit, :update, :destroy]
-
+    helper_method :pagination_params
+    
     # GET /list_items
     # GET /list_items.json
     def index
-      @list_items = ListItem.all
+      if params[:search]
+        @list_items = ListItem.where("title like ?", "%#{params[:search]}%")
+      else
+        @list_items = ListItem.all
+      end
+      @list_items = @list_items.paginate(pagination_params)
+                            .order("position ASC")
     end
 
     # GET /list_items/1

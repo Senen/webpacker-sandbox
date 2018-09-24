@@ -73,10 +73,6 @@ module Vue
 
     private
 
-      def pagination_params
-        { page: params[:page] || 1, per_page: params[:per_page] || 10 }
-      end
-
       # Use callbacks to share common setup or constraints between actions.
       def set_list_item
         @list_item = ListItem.find(params[:id])
