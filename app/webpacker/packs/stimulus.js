@@ -10,18 +10,15 @@ console.log('Hello from application stimulus webpack');
 
 import 'bootstrap/dist/js/bootstrap';
 
-// run rails ujs
 import Rails from 'rails-ujs'
+import Turbolinks from 'turbolinks'
 
 Rails.start();
-
-// run turbolinks
-const Turbolinks = require('turbolinks');
 Turbolinks.start();
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
-const context = require.context("stimulus_controllers", true, /.js$/)
+const context = require.context("src/javascript/stimulus", true, /.js$/)
 application.load(definitionsFromContext(context))

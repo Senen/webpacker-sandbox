@@ -27,7 +27,6 @@ $(document).on("turbolinks:load", function(){
     },
     mounted: function () {
       var element = $(this.$el);
-      console.log('mounted');
       this.firstLoad = true;
       this.fetch($(element).attr('api-url'));
     },

@@ -8,20 +8,17 @@
 // layout file, like app/views/layouts/vue.html.erb
 console.log('Hello from application vue webpack');
 
-import Vue from 'vue/dist/vue.esm';
+import Rails from 'rails-ujs'
+import Turbolinks from 'turbolinks'
 
-// run Turbolinks
-import TurbolinksAdapter from 'vue-turbolinks';
-Vue.use(TurbolinksAdapter)
-const Turbolinks = require('turbolinks');
+Rails.start();
 Turbolinks.start();
 
-// JQuery Rails unobstrusive adapter
-import {} from 'jquery-ujs'
+import Vue from 'vue/dist/vue.esm';
 
-// run rails ujs
-const Rails = require('rails-ujs');
-Rails.start();
+import TurbolinksAdapter from 'vue-turbolinks';
+
+Vue.use(TurbolinksAdapter)
 
 // Bootstrap 4 load
 import BootstrapVue from 'bootstrap-vue'
@@ -37,8 +34,8 @@ import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
 
-import './vue/countdown';
-import './vue/list_items';
+import '../src/javascript/vue/countdown';
+import '../src/javascript/vue/list_items';
 
 $(document).on("turbolinks:load", function() {
 
