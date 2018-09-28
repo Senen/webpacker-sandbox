@@ -28,7 +28,7 @@ rake db:create db:migrate db:seed
 rails s || foreman start -f Procfile-dev
 ```
 
-**You will nedd to install foreman gem manually.**
+**You will need to install foreman gem manually.**
 
 # Tests
 We are using rspec-rails and chromedriver to run feature specs with JS support. You should have chromedriver tool available on your PAT or you can use any driver modifying spec/support/capybara.rb configuration file.
