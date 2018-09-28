@@ -10,7 +10,7 @@ describe 'Coffee::ListItems' do
     scenario 'Should show existing list items', :js do
       visit coffee_list_items_path
 
-      expect(page).to have_text(list_item.title.truncate(30))
+      expect(page).to have_text(list_item.title.truncate(30, omission: ''))
     end
 
     scenario 'Should go to new list item page when click new button', :js do

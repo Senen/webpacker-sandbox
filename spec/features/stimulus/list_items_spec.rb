@@ -71,8 +71,8 @@ describe 'Stimulus::ListItems' do
       end
 
       scenario 'Should show next page records after page change', :js do
-        create_list(:list_item, 9)
-        last_item = create(:list_item, position: 99)
+        list_items = create_list(:list_item, 10)
+        last_item = list_items.last
         visit stimulus_list_items_path
 
         title = last_item.title.truncate(30, omission: '')
