@@ -1,24 +1,13 @@
-# README
+# Webpacker-sandbox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a sandbox project to help us to understand needed changes to use webpacker to manage frontend dependencies in place of traditional asset pipeline in a Rails 5 application. We need our frontend developers be able to use almost any webpack library easily to build rich and reactive frontends for our customers.
 
-Things you may want to cover:
+Also sprockets is not fully supporting ES6 so it is a limitation for frontend developers at this moment. Asset pipeline was deactivated completely form this project.
 
-* Ruby version
+In this project we wanted to implemented the same features with 3 different frontend frameworks:
 
-* System dependencies
+1. Coffescript + Turbolinks + Bootstrap 4
+2. StimulusJS + Turbolinks + Bootstrap 4
+3. VueJS + Turbolinks + Bootstrap-Vue (Bootstrap 4)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All three implementations are successfully passing same feature specs.
