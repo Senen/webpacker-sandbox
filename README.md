@@ -11,3 +11,18 @@ In this project we wanted to implemented the same features with 3 different fron
 3. VueJS + Turbolinks + Bootstrap-Vue (Bootstrap 4)
 
 All three implementations are successfully passing same feature specs.
+
+# TODO
+Deploy on production server to explore deployment caveats.
+
+# Installation instructions
+
+To use this project locally
+```
+git clone https://github.com/Senen/webpacker-sandbox
+cd webpacker-sandbox
+bundle
+yarn install
+rake db:create db:migrate db:seed
+rails s || rspec spec || foreman start -f Procfile-dev
+```
