@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :list_items
+  namespace :coffee do
+    resources :list_items
+  end
   namespace :stimulus do
     resources :list_items
   end

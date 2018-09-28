@@ -16,5 +16,5 @@ import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
-const context = require.context("src/javascript/stimulus", true, /.js$/)
+const context = require.context("src/javascripts/stimulus", true, /.js$/)
 application.load(definitionsFromContext(context))

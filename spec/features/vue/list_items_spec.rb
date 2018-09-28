@@ -75,13 +75,14 @@ describe 'Vue::ListItems' do
       end
 
       scenario 'Should show next page records after page change', :js do
-        create_list(:list_item, 9)
-        last_item = create(:list_item, position: 99)
+        list_items = create_list(:list_item, 10)
+        last_item = list_items.last
         visit vue_list_items_path
 
-        title = last_item.title.size >= 30 ? last_item.title[0..28] : last_item.title
+        title = last_item.title.truncate(30, omission: '')
         expect(page).not_to have_text(title)
         click_link "2"
+        page.save_screenshot
         expect(page).to have_text(title)
       end
 
@@ -133,7 +134,7 @@ describe 'Vue::ListItems' do
 
   describe "Update" do
     let!(:list_item) { create(:list_item) }
-    
+
     scenario "Should show successful update notice", :js do
       visit edit_vue_list_item_path(list_item)
 

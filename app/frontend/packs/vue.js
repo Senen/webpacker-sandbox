@@ -32,8 +32,8 @@ import VueAxios from 'vue-axios'
 
 Vue.use(VueAxios, axios)
 
-import '../src/javascript/vue/countdown';
-import '../src/javascript/vue/list_items';
+import '../src/javascripts/vue/countdown';
+import '../src/javascripts/vue/list_items';
 
 $(document).on("turbolinks:load", function() {
 

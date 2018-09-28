@@ -1,11 +1,11 @@
-module Vue
+module Coffee
   class ListItemsController < ApplicationController
-    layout 'vue'
+    layout 'coffee'
     before_action :set_list_item, only: [:show, :edit, :update, :destroy]
     helper_method :pagination_params
 
-    # GET /vue/list_items
-    # GET /vue/list_items.json
+    # GET /list_items
+    # GET /list_items.json
     def index
       if params[:search]
         @list_items = ListItem.where("title like ?", "%#{params[:search]}%")
@@ -16,28 +16,28 @@ module Vue
                             .order("position ASC")
     end
 
-    # GET /vue/list_items/1
-    # GET /vue/list_items/1.json
+    # GET /list_items/1
+    # GET /list_items/1.json
     def show
     end
 
-    # GET /vue/list_items/new
+    # GET /list_items/new
     def new
       @list_item = ListItem.new
     end
 
-    # GET /vue/list_items/1/edit
+    # GET /list_items/1/edit
     def edit
     end
 
-    # POST /vue/list_items
-    # POST /vue/list_items.json
+    # POST /list_items
+    # POST /list_items.json
     def create
       @list_item = ListItem.new(list_item_params)
 
       respond_to do |format|
         if @list_item.save
-          format.html { redirect_to [:vue, @list_item], notice: 'List item was successfully created.' }
+          format.html { redirect_to [:coffee, @list_item], notice: 'List item was successfully created.' }
           format.json { render :show, status: :created, location: @list_item }
         else
           format.html { render :new }
@@ -46,12 +46,12 @@ module Vue
       end
     end
 
-    # PATCH/PUT /vue/list_items/1
-    # PATCH/PUT /vue/list_items/1.json
+    # PATCH/PUT /list_items/1
+    # PATCH/PUT /list_items/1.json
     def update
       respond_to do |format|
         if @list_item.update(list_item_params)
-          format.html { redirect_to [:vue, @list_item], notice: 'List item was successfully updated.' }
+          format.html { redirect_to [:coffee, @list_item], notice: 'List item was successfully updated.' }
           format.json { render :show, status: :ok, location: @list_item }
         else
           format.html { render :edit }
@@ -60,18 +60,18 @@ module Vue
       end
     end
 
-    # DELETE /vue/list_items/1
-    # DELETE /vue/list_items/1.json
+    # DELETE /list_items/1
+    # DELETE /list_items/1.json
     def destroy
       @list_item.destroy
       respond_to do |format|
-        format.html { redirect_to vue_list_items_url, notice: 'List item was successfully destroyed.' }
+        format.html { redirect_to coffee_list_items_url, notice: 'List item was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
 
     private
-
+    
       # Use callbacks to share common setup or constraints between actions.
       def set_list_item
         @list_item = ListItem.find(params[:id])

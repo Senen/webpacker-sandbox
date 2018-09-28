@@ -5,9 +5,9 @@ require 'faker'
 
 FactoryBot.define do
   factory :list_item do
-    title { Faker::Lorem.sentence }
+    sequence(:title) { |n| Faker::Lorem.sentence }
     sequence(:position) { |n| n }
-    description { Faker::Lorem.paragraph }
+    sequence(:description) { |n| Faker::Lorem.paragraph }
   end
 end
 
