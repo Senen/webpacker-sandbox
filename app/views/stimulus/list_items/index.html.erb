@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Items</h1>
+
+<div class="icon-button text-right">
+  <%= link_to new_stimulus_list_item_path, class: "btn btn-outline-success" do %>
+    <i class="fa fa-plus fa-fw"></i>
+    New List Item
+  <% end %>
+</div>
+
+<br>
+
+<div data-controller="list-items"
+     data-list-items-url="<%= url_for(pagination_params.merge({ format: :js, search: params[:search] })) %>"
+     data-list-items-html-url="<%= url_for(pagination_params) %>">
+  <div id="filters">
+    <input id="searchField" type="text" placeholder="Enter your search" class="form-control"
+      data-action="change->list-items#change_search" data-target="list-items.query"/>
+    <p>Value: <span id="search-query" data-target="list-items.query"></span></p>
+  </div>
+  <div id="list-items-records" class="table-responsive"></div>
+</div>

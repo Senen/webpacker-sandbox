@@ -28,3 +28,21 @@
   <p>{{ user_input_message }}</p>
   <input v-model="user_input_message" class="form-control">
 </div>
+
+<h2>Countdown</h2>
+<div id="countdown">
+  <countdown :time="time" :interval="100" tag="p">
+    <template slot-scope="props">New Year Countdown：{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }} seconds.</template>
+  </countdown>
+
+  <countdown :time="time" tag="p">
+    <template slot-scope="props">Christmas Time Remaining：{{ props.totalDays }} days / {{ props.totalHours }} hours / {{ props.totalMinutes }} minutes / {{ props.totalSeconds }} seconds.</template>
+  </countdown>
+
+  <button type="button" class="btn btn-secondary" :disabled="counting" @click="countdown">
+    <countdown v-if="counting" :time="60000" :leading-zero="false" @countdownend="countdownend">
+      <template slot-scope="props">Fetch again {{ props.totalSeconds }} seconds later</template>
+    </countdown>
+    <span v-else>Fetch Verification Code</span>
+  </button>
+</div>

@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Items</h1>
+
+<div class="icon-button text-right">
+  <%= link_to new_coffee_list_item_path, class: "btn btn-outline-success" do %>
+    <i class="fa fa-plus fa-fw"></i>
+    New List Item
+  <% end %>
+</div>
+
+<br>
+
+<div id="list-items-records" class="table-responsive">
+  <div id="filters">
+    <%= form_tag url_for, method: :get do %>
+     <%= text_field_tag :search, params[:search], placeholder: "Enter your search", class: "form-control", id: 'searchField' %>
+    <% end %>
+    <p>Value: <span id="search-query" data-target="list-items.query"></span></p>
+  </div>
+  <table id="list-items-table" class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>title</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @list_items.each do |list_item| %>
+        <tr>
+          <td><%= list_item.id %></td>
+          <td><%= truncate_list_item_title(list_item) %></td>
+          <td>
+            <div class="table-actions">
+              <%= link_to 'Show', coffee_list_item_path(list_item), class: "btn btn-sm btn-outline-info" %>
+              <%= link_to 'Edit', edit_coffee_list_item_path(list_item), class: "btn btn-sm btn-info" %>
+              <%= link_to 'Destroy', coffee_list_item_path(list_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate @list_items, list_classes: %w(pagination justify-content-center) %>
+
+  <div>Showing page <%= @list_items.current_page %> of <%= @list_items.total_pages %>. Records from <%= pagination_from(@list_items) %> to <%= pagination_to(@list_items) %></div>
+
+  <br>
+
+  <div>currentPage: <span data-target="list-items.currentPage"><%= @list_items.current_page %></span> </div>
+  <div>pages: <%= @list_items.total_pages %></div>
+  <div>perPage: <span data-target="list-items.perPage"><%= params[:per_page] %></span></div>
+  <div>total: <%= @list_items.total_entries %></div>
+  <div>searching for : <%= params[:search] %></div>
+</div>
+<br>
+
+
+

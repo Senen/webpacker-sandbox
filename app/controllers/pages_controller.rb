@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     when 'vue'
       'vue'
     else
-      'application'
+      'coffee'
     end
   end
 
