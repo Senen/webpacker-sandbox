@@ -13,16 +13,29 @@ In this project we wanted to implemented the same features with 3 different fron
 All three implementations are successfully passing same feature specs.
 
 # TODO
-Deploy on production server to explore deployment caveats.
+Deploy on production server to explore and resolve deployment and server configuration problems to solve.
 
 # Installation instructions
 
-To use this project locally
+To use this project locally:
+
 ```
 git clone https://github.com/Senen/webpacker-sandbox
 cd webpacker-sandbox
 bundle
 yarn install
 rake db:create db:migrate db:seed
-rails s || rspec spec || foreman start -f Procfile-dev
+rails s || foreman start -f Procfile-dev
+```
+
+**You will nedd to install foreman gem manually.**
+
+# Tests
+We are using rspec-rails and chromedriver to run feature specs with JS support. You should have chromedriver tool available on your PAT or you can use any driver modifying spec/support/capybara.rb configuration file.
+
+If you are running OSX you can install it with brew:
+
+```
+brew tap homebrew/cask
+brew cask install chromedriver
 ```
