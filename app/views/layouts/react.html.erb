@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebpackSandbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'react', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'react' %>
+  </head>
+
+  <body>
+    <%= render 'shared/navbar' %>
+    <main role="main" class="container">
+      <div id="content">
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+  </body>
+</html>

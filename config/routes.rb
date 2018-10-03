@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/stimulus',  to: "pages#stimulus", as: :stimulus
   get '/vue',  to: "pages#vue", as: :vue
+  get '/react',  to: "pages#react", as: :react
 end

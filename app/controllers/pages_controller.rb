@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 
   def vue; end
 
+  def react; end
+
   private
 
   def resolve_layout
@@ -15,6 +17,8 @@ class PagesController < ApplicationController
       'stimulus'
     when 'vue'
       'vue'
+    when 'react'
+      'react'
     else
       'coffee'
     end
